@@ -1,12 +1,18 @@
 {
   "manifest_version": 2,
   "name": "New comments on reddit",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Highlight new comments on reddit",
   "permissions": [
     "*://*.reddit.com/*",
     "storage"
   ],
+  "applications": {
+    "gecko": {
+      "id": "{582133bb-563e-4f7a-a54c-4948256a8efc}",
+      "strict_min_version": "54.0"
+    }
+  },
   "content_scripts": [
     {
       "matches": ["*://*.reddit.com/*/comments/*"],
