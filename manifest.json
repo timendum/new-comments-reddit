@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "New comments on reddit",
+  "version": "1.0",
+  "description": "Highlight new comments on reddit",
+  "permissions": [
+    "*://*.reddit.com/*",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*.reddit.com/*/comments/*"],
+      "run_at": "document_end",
+      "js": ["comments.js"]
+    }
+  ],
+  "options_ui": {
+    "page": "options.html"
+  }
+}
