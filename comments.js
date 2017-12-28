@@ -48,8 +48,9 @@ function cleanUp(storedInfo) {
         console.log('No comments-page');
         return;
     }
-    if (document.body.classList.contains('moderator')) {
-        // modertors have new comment feature from Reddit
+    if (document.body.classList.contains('moderator') ||
+        document.body.classList.contains('gold')) {
+        // gold users and moderators get new comment feature from Reddit
         return;
     }
     document.body.classList.add('comment-addon');
