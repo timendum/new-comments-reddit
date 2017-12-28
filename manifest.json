@@ -3,6 +3,9 @@
   "name": "New comments on reddit",
   "version": "1.2",
   "description": "Highlight new comments on reddit",
+  "icons": {
+    "48": "icon.png"
+  },
   "permissions": [
     "*://*.reddit.com/*",
     "storage"
