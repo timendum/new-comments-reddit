@@ -20,7 +20,7 @@
     {
       "matches": ["*://*.reddit.com/*/comments/*"],
       "run_at": "document_end",
-      "js": ["comments.js"]
+      "js": ["browser-polyfill.min.js", "comments.js"]
     }
   ],
   "options_ui": {
