@@ -2,7 +2,6 @@ let estorage = browser.storage.local;
 
 function highlight(lastdatetime) {
     const times = document.getElementsByTagName('time');
-    // let lastdatetime = '2017-12-22T09:26:38+00:00';
     let maxdatetime = lastdatetime || '0';
     for (let elem of times) {
         const thisdatetime = elem.getAttribute('datetime');
