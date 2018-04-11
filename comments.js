@@ -52,6 +52,9 @@ function cleanUp(storedInfo) {
         // gold users and moderators get new comment feature from Reddit
         return;
     }
+    if (document.body.classList.contains('comment-permalink-page')) {
+        // ignore permalink page, it only shows some comments
+    }
     document.body.classList.add('comment-addon');
 
     const redditId = document.location.pathname.match(/\/comments\/([^\/]+)/)[1];
