@@ -60,6 +60,14 @@ function cleanUp(storedInfo) {
     const redditId = document.location.pathname.match(/\/comments\/([^\/]+)/)[1];
 
     function retrived(storedInfo) {
+        if (storedInfo[redditId]) {
+            const previousDate = new Date(storedInfo[redditId]);
+            const now = new Date();
+            if (now - previousDate < 5 * 60 * 1000) {
+                // the previous visit is < 5 minutes ago
+                return;
+            }
+        }
         console.debug(redditId, storedInfo[redditId]);
         const maxdatetime = highlight(storedInfo[redditId]);
         const toBeSaved = {};
