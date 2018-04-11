@@ -52,24 +52,27 @@ function cleanUp(storedInfo) {
         // gold users and moderators get new comment feature from Reddit
         return;
     }
-    if (document.body.classList.contains('comment-permalink-page')) {
-        // ignore permalink page, it only shows some comments
-    }
     document.body.classList.add('comment-addon');
 
     const redditId = document.location.pathname.match(/\/comments\/([^\/]+)/)[1];
 
     function retrived(storedInfo) {
+        console.debug(redditId, storedInfo[redditId]);
+        const maxdatetime = highlight(storedInfo[redditId]);
         if (storedInfo[redditId]) {
             const previousDate = new Date(storedInfo[redditId]);
             const now = new Date();
             if (now - previousDate < 5 * 60 * 1000) {
                 // the previous visit is < 5 minutes ago
+                console.debug('Too early', now, previousDate);
                 return;
             }
         }
-        console.debug(redditId, storedInfo[redditId]);
-        const maxdatetime = highlight(storedInfo[redditId]);
+        if (document.body.classList.contains('comment-permalink-page')) {
+            // ignore permalink page, it only shows some comments
+            console.debug('Permalink page');
+            return;
+        }
         const toBeSaved = {};
         toBeSaved[redditId] = maxdatetime;
         console.debug('Saving', toBeSaved);
